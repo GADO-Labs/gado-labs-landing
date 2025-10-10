@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page_title">Gado Labs | Construyendo Excelencia Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fuente principal Inter para un look limpio y moderno */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Fondo muy claro */
+            color: #1a202c;
+        }
+        /* Estilo para el botón de idioma */
+        #lang-toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+        /* Clase para dar tamaño al SVG si es necesario */
+        #logo-anchor svg {
+            height: 32px; /* Altura estándar para logos en navbars */
+            width: auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <a href="#" id="logo-anchor" class="text-2xl font-extrabold text-[#0047AB] tracking-tight flex items-center transition duration-300 hover:opacity-90">
+                <svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .gl-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -1.5px; }
+                        .gl-rect { transition: transform 0.3s ease-in-out; }
+                        #logo-anchor:hover .gl-rect-1 { transform: translateX(5px) rotate(5deg); }
+                        #logo-anchor:hover .gl-rect-2 { transform: translateX(-5px) rotate(-5deg); }
+                    </style>
+                    <g>
+                        <rect class="gl-rect gl-rect-1" x="5" y="5" width="40" height="40" rx="8" fill="#FF6B35"/>
+                        <rect class="gl-rect gl-rect-2" x="15" y="5" width="40" height="40" rx="8" fill="#0047AB" fill-opacity="0.85"/>
+                    </g>
+                    <text x="65" y="34" fill="#1a202c" class="gl-text">Gado Labs</text>
+                </svg>
+            </a>
+            
+            <div class="flex items-center space-x-4">
+                
+                <button id="lang-toggle" class="flex items-center space-x-1 text-sm font-semibold text-gray-600 hover:text-[#FF6B35] transition duration-300 px-3 py-1.5 rounded-full border border-gray-200 hover:border-[#FF6B35] focus:outline-none focus:ring-2 focus:ring-[#FF6B35]">
+                    <span class="text-xl">🌐</span>
+                    <span id="current-flag-display" class="text-lg">🇪🇸</span> 
+                    <span id="current-lang-display">ES</span> </button>
+
+                <nav class="hidden sm:block">
+                    <a href="#contacto" id="nav_cta" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-[#FF6B35] hover:bg-[#E55B2B] transition duration-300">
+                        Empecemos a Construir
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-16 pb-24 sm:pt-24 sm:pb-32 bg-[#0047AB] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">
+                <span id="hero_title_p1">Construyendo la</span> <span class="text-[#FFD166]" id="hero_title_p2">Excelencia Digital</span>.
+            </h1>
+            
+            <p id="hero_subtitle" class="mt-6 max-w-3xl mx-auto text-xl sm:text-2xl font-light text-gray-200">
+                Una microempresa con base en EE. UU. que transforma ideas en aplicaciones, sitios web modernos y marcas visualmente impactantes.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#servicios" id="btn_services" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-[#0047AB] bg-[#FFD166] hover:bg-white transition duration-300 transform hover:scale-105">
+                    Ver Nuestros Servicios
+                </a>
+                <a href="#contacto" id="btn_contact_hero" class="inline-flex items-center justify-center px-8 py-3 border border-2 border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-[#0047AB] transition duration-300 transform hover:scale-105">
+                    Hablemos de tu Proyecto
+                </a>
+            </div>
+            
+        </div>
+    </main>
+    
+    <section id="servicios" class="py-20 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span id="specialty_tag" class="text-sm font-semibold text-[#FF6B35] uppercase tracking-wider">NUESTRA ESPECIALIDAD</span>
+                <h2 id="services_title" class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">
+                    Soluciones a la Medida para tu Negocio
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                
+                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#FF6B35]">
+                    <div class="text-4xl text-[#FF6B35] mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>
+                    </div>
+                    <h3 id="service1_title" class="text-xl font-bold text-gray-900 mb-3">Desarrollo de Apps Nativas y Web</h3>
+                    <p id="service1_text" class="text-gray-600">Creamos aplicaciones móviles y de escritorio robustas y escalables para iOS, Android y Web. Llevamos tu idea a un producto listo para el mercado.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#0047AB]">
+                    <div class="text-4xl text-[#0047AB] mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="10" y1="21" x2="14" y2="21"></line><line x1="6" y1="17" x2="18" y2="17"></line></svg>
+                    </div>
+                    <h3 id="service2_title" class="text-xl font-bold text-gray-900 mb-3">Sitios Web y Experiencias UX/UI</h3>
+                    <p id="service2_text" class="text-gray-600">Diseñamos y desarrollamos sitios web rápidos, optimizados y enfocados en la experiencia de usuario (UX/UI) para capturar y convertir a tus clientes.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#FFD166]">
+                    <div class="text-4xl text-[#FFD166] mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                    </div>
+                    <h3 id="service3_title" class="text-xl font-bold text-gray-900 mb-3">Servicios Creativos y Branding</h3>
+                    <p id="service3_text" class="text-gray-600">Ofrecemos diseño gráfico profesional para tu identidad de marca, logotipos, material de marketing y piezas visuales que resuenan con tu audiencia.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-[#FF6B35] py-16 sm:py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h2 id="cta_title" class="text-3xl sm:text-4xl font-extrabold mb-4">
+                ¿Listo para comenzar tu próximo proyecto?
+            </h2>
+            <p id="cta_subtitle" class="text-lg font-light mb-8">
+                Hablemos sobre tus metas. En Gado Labs, estamos listos para ser tu socio de tecnología de confianza.
+            </p>
+            <a href="mailto:carlosgalo@gado-labs.com" id="btn_contact_cta" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-base font-medium rounded-full shadow-lg text-[#FF6B35] bg-white hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                Escríbenos Directamente
+            </a>
+            <p id="contact_email_text" class="mt-4 text-sm font-medium">o contáctanos en: carlosgalo@gado-labs.com</p>
+        </div>
+    </section>
+
+    <footer class="bg-[#1a202c] py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p class="text-lg font-bold text-white mb-2">Gado Labs</p>
+            <p class="text-sm">&copy; 2025 Gado Labs, LLC. <span id="footer_rights">Todos los derechos reservados.</span></p>
+            <p id="footer_based" class="mt-2 text-xs">Con base en Estados Unidos, sirviendo al mundo digital.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Objeto de traducciones para todos los textos clave
+        const translations = {
+            page_title: {
+                es: "Gado Labs | Construyendo Excelencia Digital",
+                en: "Gado Labs | Building Digital Excellence"
+            },
+            nav_cta: {
+                es: "Empecemos a Construir",
+                en: "Start Building"
+            },
+            hero_title_p1: {
+                es: "Construyendo la",
+                en: "Building"
+            },
+            hero_title_p2: {
+                es: "Excelencia Digital",
+                en: "Digital Excellence"
+            },
+            hero_subtitle: {
+                es: "Una microempresa con base en EE. UU. que transforma ideas en aplicaciones, sitios web modernos y marcas visualmente impactantes.",
+                en: "A US-based micro-enterprise transforming ideas into applications, modern websites, and visually impactful brands."
+            },
+            btn_services: {
+                es: "Ver Nuestros Servicios",
+                en: "View Our Services"
+            },
+            btn_contact_hero: {
+                es: "Hablemos de tu Proyecto",
+                en: "Let's Talk About Your Project"
+            },
+            specialty_tag: {
+                es: "NUESTRA ESPECIALIDAD",
+                en: "OUR SPECIALTY"
+            },
+            services_title: {
+                es: "Soluciones a la Medida para tu Negocio",
+                en: "Tailored Solutions for Your Business"
+            },
+            service1_title: {
+                es: "Desarrollo de Apps Nativas y Web",
+                en: "Native and Web App Development"
+            },
+            service1_text: {
+                es: "Creamos aplicaciones móviles y de escritorio robustas y escalables para iOS, Android y Web. Llevamos tu idea a un producto listo para el mercado.",
+                en: "We create robust and scalable mobile and desktop applications for iOS, Android, and Web. We take your idea to a market-ready product."
+            },
+            service2_title: {
+                es: "Sitios Web y Experiencias UX/UI",
+                en: "Websites and UX/UI Experiences"
+            },
+            service2_text: {
+                es: "Diseñamos y desarrollamos sitios web rápidos, optimizados y enfocados en la experiencia de usuario (UX/UI) para capturar y convertir a tus clientes.",
+                en: "We design and develop fast, optimized websites focused on user experience (UX/UI) to capture and convert your customers."
+            },
+            service3_title: {
+                es: "Servicios Creativos y Branding",
+                en: "Creative Services and Branding"
+            },
+            service3_text: {
+                es: "Ofrecemos diseño gráfico profesional para tu identidad de marca, logotipos, material de marketing y piezas visuales que resuenan con tu audiencia.",
+                en: "We offer professional graphic design for your brand identity, logos, marketing material, and visual pieces that resonate with your audience."
+            },
+            cta_title: {
+                es: "¿Listo para comenzar tu próximo proyecto?",
+                en: "Ready to start your next project?"
+            },
+            cta_subtitle: {
+                es: "Hablemos sobre tus metas. En Gado Labs, estamos listos para ser tu socio de tecnología de confianza.",
+                en: "Let's talk about your goals. At Gado Labs, we are ready to be your trusted technology partner."
+            },
+            btn_contact_cta: {
+                es: "Escríbenos Directamente",
+                en: "Write Us Directly"
+            },
+            contact_email_text: {
+                es: "o contáctanos en: carlosgalo@gado-labs.com",
+                en: "or contact us at: carlosgalo@gado-labs.com"
+            },
+            footer_rights: {
+                es: "Todos los derechos reservados.",
+                en: "All rights reserved."
+            },
+            footer_based: {
+                es: "Con base en Estados Unidos, sirviendo al mundo digital.",
+                en: "Based in the United States, serving the digital world."
+            },
+        };
+
+        // Mapa de banderas usando emojis
+        const flagMap = {
+            es: '🇪🇸', // Bandera de España
+            en: '🇺🇸'  // Bandera de Estados Unidos
+        };
+
+        let currentLang = localStorage.getItem('gadoLabsLang') || 'es'; // Carga el idioma guardado, por defecto español
+
+        /**
+         * Aplica las traducciones a los elementos HTML.
+         * @param {string} lang - El código de idioma ('es' o 'en').
+         */
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('gadoLabsLang', lang);
+            document.documentElement.lang = lang; // Actualiza el atributo lang del HTML
+            
+            // Itera sobre todas las claves de traducción y actualiza el texto
+            for (const key in translations) {
+                const element = document.getElementById(key);
+                if (element && translations[key][lang]) {
+                    // Si el elemento es un input o textarea, usa .placeholder
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[key][lang];
+                    } else {
+                        // Para todos los demás, usa .textContent
+                        element.textContent = translations[key][lang];
+                    }
+                }
+            }
+
+            // Actualiza el texto del indicador de idioma y la bandera en el botón
+            const langDisplay = document.getElementById('current-lang-display');
+            const flagDisplay = document.getElementById('current-flag-display');
+
+            if (langDisplay) {
+                langDisplay.textContent = lang.toUpperCase();
+            }
+            if (flagDisplay) {
+                flagDisplay.textContent = flagMap[lang]; // Muestra el emoji de la bandera
+            }
+        }
+
+        // Event listener para el botón de cambio de idioma
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            setLanguage(newLang);
+        });
+
+        // Carga el idioma al iniciar la página
+        window.onload = () => {
+            setLanguage(currentLang);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,60 +1,127 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page_title">Gado Labs | Construyendo Excelencia Digital</title>
+    <title id="page_title">GADO Labs</title>
+    <meta name="description" content="Gado Labs - Mobile & Web Development Studio based in the US.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
-        /* Fuente principal Inter para un look limpio y moderno */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        /* --- CUSTOM THEME CONFIGURATION --- */
+        :root {
+            --neon-cyan: #22d3ee;     /* Matching Left Logo Side */
+            --neon-blue: #3b82f6;     /* Matching Center Logo Lines */
+            --neon-amber: #fbbf24;    /* Matching Right Logo Side */
+            --neon-orange: #f97316;   /* Matching Deep Right Lines */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc; /* Fondo muy claro */
-            color: #1a202c;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f1f5f9; /* Slate 100 */
+            overflow-x: hidden;
         }
-        /* Estilo para el botón de idioma */
-        #lang-toggle {
-            cursor: pointer;
-            user-select: none;
+
+        /* Dark Glass Navbar */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.4);
         }
-        /* Clase para dar tamaño al SVG si es necesario */
-        #logo-anchor svg {
-            height: 32px; /* Altura estándar para logos en navbars */
-            width: auto;
+
+        /* The "Logo Gradient" Text Effect (Cyan -> Blue -> Orange -> Amber) */
+        .text-gradient {
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue), var(--neon-orange), var(--neon-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cyber Grid Background Pattern */
+        .hero-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Card Styles */
+        .service-card {
+            background-color: #1e293b; /* Slate 800 */
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Hover Effects matching Logo Colors */
+        .hover-glow-cyan:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+            transform: translateY(-5px);
+        }
+        .hover-glow-mixed:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+            transform: translateY(-5px);
+        }
+        .hover-glow-amber:hover {
+            border-color: var(--neon-amber);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Main CTA Gradient Button */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-orange));
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-amber));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        #lang-toggle { cursor: pointer; user-select: none; }
+        
+        /* Selection color */
+        ::selection {
+            background: var(--neon-cyan);
+            color: #0f172a;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-white shadow-md sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+    <header class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
-            <a href="#" id="logo-anchor" class="text-2xl font-extrabold text-[#0047AB] tracking-tight flex items-center transition duration-300 hover:opacity-90">
-                <svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        .gl-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -1.5px; }
-                        .gl-rect { transition: transform 0.3s ease-in-out; }
-                        #logo-anchor:hover .gl-rect-1 { transform: translateX(5px) rotate(5deg); }
-                        #logo-anchor:hover .gl-rect-2 { transform: translateX(-5px) rotate(-5deg); }
-                    </style>
-                    <g>
-                        <rect class="gl-rect gl-rect-1" x="5" y="5" width="40" height="40" rx="8" fill="#FF6B35"/>
-                        <rect class="gl-rect gl-rect-2" x="15" y="5" width="40" height="40" rx="8" fill="#0047AB" fill-opacity="0.85"/>
-                    </g>
-                    <text x="65" y="34" fill="#1a202c" class="gl-text">Gado Labs</text>
-                </svg>
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/logo.svg" alt="Gado Labs Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110">
+                <span class="text-xl font-extrabold text-slate-100 tracking-tight group-hover:text-cyan-400 transition-colors">Gado Labs</span>
             </a>
             
-            <div class="flex items-center space-x-4">
-                
-                <button id="lang-toggle" class="flex items-center space-x-1 text-sm font-semibold text-gray-600 hover:text-[#FF6B35] transition duration-300 px-3 py-1.5 rounded-full border border-gray-200 hover:border-[#FF6B35] focus:outline-none focus:ring-2 focus:ring-[#FF6B35]">
-                    <span class="text-xl">🌐</span>
+            <div class="flex items-center space-x-6">
+                <button id="lang-toggle" class="flex items-center space-x-2 text-sm font-semibold text-slate-400 hover:text-cyan-400 transition px-3 py-1.5 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10">
                     <span id="current-flag-display" class="text-lg">🇪🇸</span> 
-                    <span id="current-lang-display">ES</span> </button>
+                    <span id="current-lang-display">ES</span> 
+                </button>
 
                 <nav class="hidden sm:block">
-                    <a href="#contacto" id="nav_cta" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-[#FF6B35] hover:bg-[#E55B2B] transition duration-300">
+                    <a href="#contacto" id="nav_cta" class="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-bold rounded-full shadow-lg text-white btn-primary transition duration-300 transform hover:scale-105">
                         Empecemos a Construir
                     </a>
                 </nav>
@@ -62,22 +129,28 @@
         </div>
     </header>
 
-    <main class="pt-16 pb-24 sm:pt-24 sm:pb-32 bg-[#0047AB] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <main class="relative pt-32 pb-24 sm:pt-48 sm:pb-40 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-40 pointer-events-none"></div>
+        
+        <div class="absolute top-20 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">
-                <span id="hero_title_p1">Construyendo la</span> <span class="text-[#FFD166]" id="hero_title_p2">Excelencia Digital</span>.
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight tracking-tight text-white">
+                <span id="hero_title_p1">Construyendo la</span> <br class="hidden sm:block" />
+                <span class="text-gradient" id="hero_title_p2">Excelencia Digital</span>.
             </h1>
             
-            <p id="hero_subtitle" class="mt-6 max-w-3xl mx-auto text-xl sm:text-2xl font-light text-gray-200">
+            <p id="hero_subtitle" class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-slate-400 font-light leading-relaxed">
                 Una microempresa con base en EE. UU. que transforma ideas en aplicaciones, sitios web modernos y marcas visualmente impactantes.
             </p>
             
-            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#servicios" id="btn_services" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-[#0047AB] bg-[#FFD166] hover:bg-white transition duration-300 transform hover:scale-105">
+            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#servicios" id="btn_services" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full shadow-lg shadow-cyan-500/20 text-slate-900 bg-white hover:bg-cyan-50 transition duration-300">
                     Ver Nuestros Servicios
                 </a>
-                <a href="#contacto" id="btn_contact_hero" class="inline-flex items-center justify-center px-8 py-3 border border-2 border-white text-base font-medium rounded-full text-white hover:bg-white hover:text-[#0047AB] transition duration-300 transform hover:scale-105">
+                <a href="#contacto" id="btn_contact_hero" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full border border-slate-700 text-slate-300 hover:border-cyan-400 hover:text-white hover:bg-white/5 transition duration-300">
                     Hablemos de tu Proyecto
                 </a>
             </div>
@@ -85,74 +158,77 @@
         </div>
     </main>
     
-    <section id="servicios" class="py-20 sm:py-24 bg-white">
+    <section id="servicios" class="py-24 bg-[#0B1221] relative border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span id="specialty_tag" class="text-sm font-semibold text-[#FF6B35] uppercase tracking-wider">NUESTRA ESPECIALIDAD</span>
-                <h2 id="services_title" class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900">
-                    Soluciones a la Medida para tu Negocio
+                <span id="specialty_tag" class="text-xs font-bold text-cyan-400 bg-cyan-950/30 border border-cyan-900 px-3 py-1 rounded-full uppercase tracking-widest">NUESTRA ESPECIALIDAD</span>
+                <h2 id="services_title" class="mt-4 text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                    Soluciones a la Medida
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#FF6B35]">
-                    <div class="text-4xl text-[#FF6B35] mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>
+                <div class="service-card p-8 rounded-3xl hover-glow-cyan group">
+                    <div class="w-14 h-14 bg-cyan-950/50 border border-cyan-900 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>
                     </div>
-                    <h3 id="service1_title" class="text-xl font-bold text-gray-900 mb-3">Desarrollo de Apps Nativas y Web</h3>
-                    <p id="service1_text" class="text-gray-600">Creamos aplicaciones móviles y de escritorio robustas y escalables para iOS, Android y Web. Llevamos tu idea a un producto listo para el mercado.</p>
+                    <h3 id="service1_title" class="text-xl font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">Desarrollo de Apps Nativas</h3>
+                    <p id="service1_text" class="text-slate-400 leading-relaxed">Creamos aplicaciones móviles y de escritorio robustas y escalables para iOS, Android y Web.</p>
                 </div>
 
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#0047AB]">
-                    <div class="text-4xl text-[#0047AB] mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="10" y1="21" x2="14" y2="21"></line><line x1="6" y1="17" x2="18" y2="17"></line></svg>
+                <div class="service-card p-8 rounded-3xl hover-glow-mixed group">
+                    <div class="w-14 h-14 bg-blue-950/50 border border-blue-900 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="10" y1="21" x2="14" y2="21"></line><line x1="6" y1="17" x2="18" y2="17"></line></svg>
                     </div>
-                    <h3 id="service2_title" class="text-xl font-bold text-gray-900 mb-3">Sitios Web y Experiencias UX/UI</h3>
-                    <p id="service2_text" class="text-gray-600">Diseñamos y desarrollamos sitios web rápidos, optimizados y enfocados en la experiencia de usuario (UX/UI) para capturar y convertir a tus clientes.</p>
+                    <h3 id="service2_title" class="text-xl font-bold text-slate-100 mb-3 group-hover:text-blue-300 transition-colors">Sitios Web y UX/UI</h3>
+                    <p id="service2_text" class="text-slate-400 leading-relaxed">Diseñamos y desarrollamos sitios web rápidos, optimizados y enfocados en la experiencia de usuario.</p>
                 </div>
 
-                <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-[#FFD166]">
-                    <div class="text-4xl text-[#FFD166] mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                <div class="service-card p-8 rounded-3xl hover-glow-amber group">
+                    <div class="w-14 h-14 bg-amber-950/50 border border-amber-900 rounded-2xl flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                     </div>
-                    <h3 id="service3_title" class="text-xl font-bold text-gray-900 mb-3">Servicios Creativos y Branding</h3>
-                    <p id="service3_text" class="text-gray-600">Ofrecemos diseño gráfico profesional para tu identidad de marca, logotipos, material de marketing y piezas visuales que resuenan con tu audiencia.</p>
+                    <h3 id="service3_title" class="text-xl font-bold text-slate-100 mb-3 group-hover:text-amber-300 transition-colors">Servicios Creativos</h3>
+                    <p id="service3_text" class="text-slate-400 leading-relaxed">Ofrecemos diseño gráfico profesional para tu identidad de marca y piezas visuales.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="bg-[#FF6B35] py-16 sm:py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <h2 id="cta_title" class="text-3xl sm:text-4xl font-extrabold mb-4">
+    <section id="contacto" class="relative py-24 bg-[#0f172a] overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-gradient-to-r from-cyan-900/20 to-amber-900/20 blur-3xl rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
+            <h2 id="cta_title" class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
                 ¿Listo para comenzar tu próximo proyecto?
             </h2>
-            <p id="cta_subtitle" class="text-lg font-light mb-8">
+            <p id="cta_subtitle" class="text-lg text-slate-400 font-light mb-12 max-w-2xl mx-auto">
                 Hablemos sobre tus metas. En Gado Labs, estamos listos para ser tu socio de tecnología de confianza.
             </p>
-            <a href="mailto:carlosgalo@gado-labs.com" id="btn_contact_cta" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-base font-medium rounded-full shadow-lg text-[#FF6B35] bg-white hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+            <a href="mailto:support@gado-labs.com" id="btn_contact_cta" class="inline-flex items-center justify-center px-12 py-5 text-lg font-bold rounded-full shadow-2xl text-white btn-primary transition-all duration-300 transform hover:scale-105">
                 Escríbenos Directamente
             </a>
-            <p id="contact_email_text" class="mt-4 text-sm font-medium">o contáctanos en: carlosgalo@gado-labs.com</p>
+            <p id="contact_email_text" class="mt-8 text-slate-500 text-sm font-medium">o contáctanos en: <span class="text-slate-300">support@gado-labs.com</span></p>
         </div>
     </section>
 
-    <footer class="bg-[#1a202c] py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p class="text-lg font-bold text-white mb-2">Gado Labs</p>
-            <p class="text-sm">&copy; 2025 Gado Labs, LLC. <span id="footer_rights">Todos los derechos reservados.</span></p>
-            <p id="footer_based" class="mt-2 text-xs">Con base en Estados Unidos, sirviendo al mundo digital.</p>
+    <footer class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <img src="assets/logo.svg" alt="Gado Labs" class="h-8 w-auto mx-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-500">
+            </div>
+            <p class="text-slate-500 text-sm">&copy; 2025 Gado Labs, LLC. <span id="footer_rights">Todos los derechos reservados.</span></p>
+            <p id="footer_based" class="mt-2 text-xs text-slate-700">Con base en Estados Unidos, sirviendo al mundo digital.</p>
         </div>
     </footer>
 
     <script>
-        // Objeto de traducciones para todos los textos clave
         const translations = {
             page_title: {
-                es: "Gado Labs | Construyendo Excelencia Digital",
-                en: "Gado Labs | Building Digital Excellence"
+                es: "GADO Labs",
+                en: "GADO Labs"
             },
             nav_cta: {
                 es: "Empecemos a Construir",
@@ -223,8 +299,8 @@
                 en: "Write Us Directly"
             },
             contact_email_text: {
-                es: "o contáctanos en: carlosgalo@gado-labs.com",
-                en: "or contact us at: carlosgalo@gado-labs.com"
+                es: "o contáctanos en: support@gado-labs.com",
+                en: "or contact us at: support@gado-labs.com"
             },
             footer_rights: {
                 es: "Todos los derechos reservados.",
@@ -236,60 +312,47 @@
             },
         };
 
-        // Mapa de banderas usando emojis
-        const flagMap = {
-            es: '🇪🇸', // Bandera de España
-            en: '🇺🇸'  // Bandera de Estados Unidos
-        };
+        const flagMap = { es: '🇪🇸', en: '🇺🇸' };
+        let currentLang = localStorage.getItem('gadoLabsLang') || 'es';
 
-        let currentLang = localStorage.getItem('gadoLabsLang') || 'es'; // Carga el idioma guardado, por defecto español
-
-        /**
-         * Aplica las traducciones a los elementos HTML.
-         * @param {string} lang - El código de idioma ('es' o 'en').
-         */
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('gadoLabsLang', lang);
-            document.documentElement.lang = lang; // Actualiza el atributo lang del HTML
+            document.documentElement.lang = lang;
             
-            // Itera sobre todas las claves de traducción y actualiza el texto
             for (const key in translations) {
                 const element = document.getElementById(key);
                 if (element && translations[key][lang]) {
-                    // Si el elemento es un input o textarea, usa .placeholder
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[key][lang];
+                    } else if (element.id === 'contact_email_text') {
+                         // Preserve the formatting of the email part
+                         if (lang === 'es') {
+                             element.innerHTML = 'o contáctanos en: <span class="text-slate-300">support@gado-labs.com</span>';
+                         } else {
+                             element.innerHTML = 'or contact us at: <span class="text-slate-300">support@gado-labs.com</span>';
+                         }
                     } else {
-                        // Para todos los demás, usa .textContent
                         element.textContent = translations[key][lang];
                     }
                 }
             }
 
-            // Actualiza el texto del indicador de idioma y la bandera en el botón
             const langDisplay = document.getElementById('current-lang-display');
             const flagDisplay = document.getElementById('current-flag-display');
 
-            if (langDisplay) {
-                langDisplay.textContent = lang.toUpperCase();
-            }
-            if (flagDisplay) {
-                flagDisplay.textContent = flagMap[lang]; // Muestra el emoji de la bandera
-            }
+            if (langDisplay) langDisplay.textContent = lang.toUpperCase();
+            if (flagDisplay) flagDisplay.textContent = flagMap[lang];
         }
 
-        // Event listener para el botón de cambio de idioma
         document.getElementById('lang-toggle').addEventListener('click', () => {
             const newLang = currentLang === 'es' ? 'en' : 'es';
             setLanguage(newLang);
         });
 
-        // Carga el idioma al iniciar la página
         window.onload = () => {
             setLanguage(currentLang);
         };
     </script>
-
 </body>
 </html>

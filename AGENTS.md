@@ -1,7 +1,7 @@
-## Gemini / agent file note
+## Agent documentation policy
 
-- **[AGENTS.md](AGENTS.md)** is the source of truth for this project’s agent-facing documentation.
-- When **AGENTS.md** changes, update **this file** so the same sections and facts stay in sync. This file is maintained for Google Gemini–oriented workflows alongside the canonical copy.
+- This file is the **canonical** agent-facing context for this repository. Edit project facts and conventions here first.
+- When you change anything in this file, **update [GEMINI.md](GEMINI.md)** in the same change so the Gemini-oriented copy stays aligned.
 
 # GADO Labs Landing Page
 

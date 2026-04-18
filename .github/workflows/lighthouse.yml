@@ -1,0 +1,61 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: lighthouse-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore Lighthouse baseline
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/lighthouse-baseline.json
+          key: lighthouse-baseline-main-${{ github.run_id }}
+          restore-keys: |
+            lighthouse-baseline-main-
+
+      - name: Run Lighthouse CI
+        id: lhci
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: .github/lighthouse/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Lighthouse score report
+        if: always() && steps.lhci.outcome != 'cancelled'
+        env:
+          SAVE_BASELINE: ${{ steps.lhci.outcome == 'success' && github.ref == 'refs/heads/main' && 'true' || 'false' }}
+          REPORT_LINKS: ${{ steps.lhci.outputs.links }}
+        run: node .github/scripts/lighthouse-report.mjs
+
+      - name: Check Lighthouse baseline file
+        id: baseline_file
+        if: always() && steps.lhci.outcome == 'success' && github.ref == 'refs/heads/main'
+        run: |
+          if [ -f .cache/lighthouse-baseline.json ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save Lighthouse baseline
+        if: steps.baseline_file.outputs.present == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/lighthouse-baseline.json
+          key: lighthouse-baseline-main-${{ github.run_id }}

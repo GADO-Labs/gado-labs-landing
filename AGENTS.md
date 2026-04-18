@@ -27,7 +27,7 @@ As this is a static project, there is no build process required.
     # Using Python 3
     python3 -m http.server 8000
     ```
-*   **Lighthouse CI (local):** From the repository root, with Chrome or Chromium installed: `npx @lhci/cli autorun --config=.github/lighthouse/lighthouserc.json`. See [README.md](README.md) for a one-off `lighthouse` CLI example.
+*   **Lighthouse CI (local):** From the repository root, with Chrome or Chromium installed: `npx @lhci/cli autorun --config=.github/lighthouse/lighthouserc.json`. Headless Ubuntu servers often lack a browser—install Chromium (e.g. Snap) or Google Chrome, or set `CHROME_PATH` to the binary; see [README.md](README.md). Audits can also be left to GitHub Actions only.
 *   **Deployment:** This landing page is deployed using **GitHub Pages** (static hosting). The `CNAME` file points to `gado-labs.com`.
 
 ## Project Structure

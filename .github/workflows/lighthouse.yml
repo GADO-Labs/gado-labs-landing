@@ -18,10 +18,10 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Restore Lighthouse baseline
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .cache/lighthouse-baseline.json
           key: lighthouse-baseline-main-${{ github.run_id }}
@@ -55,7 +55,7 @@ jobs:
 
       - name: Save Lighthouse baseline
         if: steps.baseline_file.outputs.present == 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .cache/lighthouse-baseline.json
           key: lighthouse-baseline-main-${{ github.run_id }}

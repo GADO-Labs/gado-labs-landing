@@ -95,7 +95,11 @@
             opacity: 1;
         }
 
-        #lang-toggle { cursor: pointer; user-select: none; }
+        #lang-toggle {
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
         
         /* Selection color */
         ::selection {
@@ -115,9 +119,10 @@
             </a>
             
             <div class="flex items-center space-x-6">
-                <button id="lang-toggle" class="flex items-center space-x-2 text-sm font-semibold text-slate-400 hover:text-cyan-400 transition px-3 py-1.5 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10">
-                    <span id="current-flag-display" class="text-lg">🇪🇸</span> 
-                    <span id="current-lang-display">ES</span> 
+                <button type="button" id="lang-toggle" title="Cambiar idioma / Switch language" aria-label="Cambiar idioma / Switch language" class="group inline-flex items-center gap-2 rounded-full border border-slate-500/70 bg-slate-800/80 px-3 py-2 text-sm font-semibold text-slate-200 shadow-sm ring-1 ring-white/5 transition hover:border-cyan-400/60 hover:bg-slate-700/90 hover:text-cyan-300 hover:shadow-md hover:shadow-cyan-500/10 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]">
+                    <span id="current-flag-display" class="text-lg leading-none" aria-hidden="true">🇪🇸</span>
+                    <span id="current-lang-display">ES</span>
+                    <svg class="h-4 w-4 text-slate-400 transition group-hover:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
                 </button>
 
                 <nav class="hidden sm:block">

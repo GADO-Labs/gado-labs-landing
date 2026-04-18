@@ -2,6 +2,7 @@
 
 - **[AGENTS.md](AGENTS.md)** is the source of truth for this project’s agent-facing documentation.
 - When **AGENTS.md** changes, update **this file** so the same sections and facts stay in sync. This file is maintained for Google Gemini–oriented workflows alongside the canonical copy.
+- When **AGENTS.md** updates **Category score floors** after changing [`.github/lighthouse/lighthouserc.json`](.github/lighthouse/lighthouserc.json), mirror those numbers here as well.
 
 # GADO Labs Landing Page
 
@@ -48,6 +49,9 @@ As this is a static project, there is no build process required.
 *   **Previous-run comparison:** The workflow restores a JSON baseline from the Actions cache (keys prefixed with `lighthouse-baseline-main-`) from the last successful run on `main`, then writes an updated baseline after each successful `main` run. Pull requests compare against that baseline (not necessarily the merge base). The first run or a cache miss has no “previous” row.
 *   **Artifacts and reports:** The workflow uploads Lighthouse artifacts and may upload to Lighthouse CI temporary public storage (short-lived public HTML report URLs). Durable copies are under the workflow run’s **Artifacts**.
 *   **README:** The intro badge reflects the latest workflow status on `main`. Category numbers are not embedded in the README; open the latest workflow run and read the **Summary** for scores and deltas. Optional [Shields.io endpoint badges](https://shields.io/badges/endpoint-badge) would require a small JSON file at a stable public URL (for example committed on `main` or hosted on Pages); that is not automated here to avoid extra commit noise.
+*   **Pinned Actions (for maintenance):** [`.github/workflows/lighthouse.yml`](.github/workflows/lighthouse.yml) uses `actions/checkout@v6`, `actions/cache/restore@v5`, `actions/cache/save@v5`, and `treosh/lighthouse-ci-action@v12`. When GitHub warns about Node.js on Actions, prefer **bumping these action major versions** in that file (see [GitHub’s runner changelog](https://github.blog/changelog/)) rather than relying on opt-out environment variables unless there is no alternative.
+*   **Category score floors (duplicate of `lighthouserc` for quick reference):** performance **0.7**; accessibility, best practices, and SEO **0.85**. If the workflow fails on performance by a tiny margin, that is often **lab variance** (CDN, fonts, runner load)—either nudge the performance `minScore` down slightly or improve assets (self-hosted CSS, font loading, images). Edit [`.github/lighthouse/lighthouserc.json`](.github/lighthouse/lighthouserc.json) as the source of truth.
+*   **Agent workflow:** After changing `index.html`, assets, or Lighthouse config, treat the task as unfinished until **GitHub Actions** shows a green (or intentionally acceptable) Lighthouse run on the branch. Do not assume local `lhci` scores match CI exactly.
 
 ## Development Conventions
 

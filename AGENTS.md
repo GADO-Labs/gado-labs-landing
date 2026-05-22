@@ -15,7 +15,7 @@ This project is the official landing page for **GADO Labs, LLC**, a mobile and w
     *   **HTML5:** Semantic structure.
     *   **Tailwind CSS:** Built to a purged `assets/styles.css` via `npm run build` (no runtime CDN).
     *   **Vanilla JavaScript:** Handles client-side internationalization (Spanish/English).
-    *   **Google Fonts:** Uses the 'Inter' font family.
+    *   **Inter (self-hosted):** Latin WOFF2 weights 400, 600, and 800 under `assets/fonts/`; LCP weight 800 preloaded in `index.html`.
 *   **Architecture:** A lightweight, single-file static site (plus assets) optimized for performance and ease of deployment.
 
 ## Building and Running
@@ -36,6 +36,7 @@ As this is a static project, there is no build process required.
 *   `README.md`: Human-oriented overview, Lighthouse workflow badge, and links to CI reports.
 *   `index.html`: The core of the application. Contains the HTML structure, Tailwind configurations, custom CSS variables for the "neon" theme, and the JavaScript translation engine.
 *   `assets/logo.webp`: Optimized logo for navbar and footer. Source artwork may be kept locally as `assets/logo-original.svg` (gitignored).
+*   `assets/fonts/`: Self-hosted Inter WOFF2 (latin 400, 600, 800).
 *   `assets/styles.css`: Purged Tailwind + theme CSS (run `npm run build` after HTML/class changes).
 *   `package.json` / `tailwind.config.js` / `src/input.css`: Tailwind build inputs.
 *   `CNAME`: Domain configuration for hosting (`gado-labs.com`).

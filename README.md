@@ -37,6 +37,21 @@ npx --yes lighthouse@latest http://localhost:8000/ --output html --output-path .
 
 If you prefer not to install Chrome on the server, rely on the **GitHub Actions** Lighthouse workflow after you push; it uses a runner image that already includes Chrome.
 
+## Analytics and social bio links
+
+Google Analytics 4 (property `G-Y12P17SMWG`) is loaded from [`index.html`](index.html). Use a **different URL per social profile bio** so GA4 can attribute traffic by platform (`utm_source`).
+
+| Platform | Bio link |
+|----------|----------|
+| Instagram | `https://gado-labs.com/?utm_source=instagram&utm_medium=social&utm_campaign=bio` |
+| TikTok | `https://gado-labs.com/?utm_source=tiktok&utm_medium=social&utm_campaign=bio` |
+| LinkedIn | `https://gado-labs.com/?utm_source=linkedin&utm_medium=social&utm_campaign=bio` |
+| X (Twitter) | `https://gado-labs.com/?utm_source=twitter&utm_medium=social&utm_campaign=bio` |
+
+After deploy, confirm in GA4 **Realtime** and (within 24–48h) **Traffic acquisition** grouped by session source/medium. No extra site code is required for UTMs.
+
+If EU traffic becomes significant, add a privacy notice and [Google Consent Mode v2](https://developers.google.com/tag-platform/security/guides/consent) before expanding ad tags.
+
 ## Development
 
 See [AGENTS.md](AGENTS.md) for project structure, i18n, and local preview.

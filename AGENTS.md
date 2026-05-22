@@ -68,3 +68,7 @@ As this is a static project, there is no build process required.
 ### Language Support
 *   Supported languages: Spanish (`es`) and English (`en`).
 *   Default language: Spanish (falls back to `es` if no preference is saved).
+
+### Analytics
+*   **GA4:** Google tag (`G-Y12P17SMWG`) in the `<head>` of `index.html` (no Consent Mode; suited for primary LATAM/US traffic).
+*   **Social attribution:** Per-platform bio URLs with UTM query params are documented in [README.md](README.md) — GA4 reads them on the landing `page_view` automatically.

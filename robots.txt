@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gado-labs.com/sitemap.xml

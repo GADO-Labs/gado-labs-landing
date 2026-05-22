@@ -13,7 +13,7 @@ This project is the official landing page for **GADO Labs, LLC**, a mobile and w
 *   **Purpose:** Professional landing page to showcase services (App Development, Web/UX, Creative Services) and facilitate contact.
 *   **Technologies:**
     *   **HTML5:** Semantic structure.
-    *   **Tailwind CSS:** Used via CDN for rapid styling and responsive design.
+    *   **Tailwind CSS:** Built to a purged `assets/styles.css` via `npm run build` (no runtime CDN).
     *   **Vanilla JavaScript:** Handles client-side internationalization (Spanish/English).
     *   **Google Fonts:** Uses the 'Inter' font family.
 *   **Architecture:** A lightweight, single-file static site (plus assets) optimized for performance and ease of deployment.
@@ -22,7 +22,7 @@ This project is the official landing page for **GADO Labs, LLC**, a mobile and w
 
 As this is a static project, there is no build process required.
 
-*   **Local Development:** Simply open `index.html` in any modern web browser.
+*   **Local Development:** Run `npm install` and `npm run build` (generates `assets/styles.css`), then open `index.html` via a local server (`python3 -m http.server 8000`) so assets resolve correctly.
 *   **Serving Locally:** You can use a simple HTTP server for better testing of features like `localStorage`:
     ```bash
     # Using Python 3
@@ -35,8 +35,11 @@ As this is a static project, there is no build process required.
 
 *   `README.md`: Human-oriented overview, Lighthouse workflow badge, and links to CI reports.
 *   `index.html`: The core of the application. Contains the HTML structure, Tailwind configurations, custom CSS variables for the "neon" theme, and the JavaScript translation engine.
-*   `assets/logo.svg`: The high-resolution company logo used in the navbar and footer.
-*   `CNAME`: Domain configuration for hosting.
+*   `assets/logo.webp`: Optimized logo for navbar and footer. Source artwork may be kept locally as `assets/logo-original.svg` (gitignored).
+*   `assets/styles.css`: Purged Tailwind + theme CSS (run `npm run build` after HTML/class changes).
+*   `package.json` / `tailwind.config.js` / `src/input.css`: Tailwind build inputs.
+*   `CNAME`: Domain configuration for hosting (`gado-labs.com`).
+*   `robots.txt` / `sitemap.xml`: Crawl rules and sitemap for Search Console (`https://gado-labs.com/sitemap.xml`).
 *   `.github/workflows/lighthouse.yml`: GitHub Actions workflow that runs [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) on pushes and pull requests to `main`.
 *   `.github/lighthouse/lighthouserc.json`: Lighthouse CI config (`staticDistDir` is the repo root when invoked from the workflow; `numberOfRuns: 3`; category `minScore` assertions).
 *   `.github/scripts/lighthouse-report.mjs`: Writes the score table and optional baseline file for cache-based comparison.
@@ -50,7 +53,7 @@ As this is a static project, there is no build process required.
 *   **Artifacts and reports:** The workflow uploads Lighthouse artifacts and may upload to Lighthouse CI temporary public storage (short-lived public HTML report URLs). Durable copies are under the workflow run’s **Artifacts**.
 *   **README:** The intro badge reflects the latest workflow status on `main`. Category numbers are not embedded in the README; open the latest workflow run and read the **Summary** for scores and deltas. Optional [Shields.io endpoint badges](https://shields.io/badges/endpoint-badge) would require a small JSON file at a stable public URL (for example committed on `main` or hosted on Pages); that is not automated here to avoid extra commit noise.
 *   **Pinned Actions (for maintenance):** [`.github/workflows/lighthouse.yml`](.github/workflows/lighthouse.yml) uses `actions/checkout@v6`, `actions/cache/restore@v5`, `actions/cache/save@v5`, and `treosh/lighthouse-ci-action@v12`. When GitHub warns about Node.js on Actions, prefer **bumping these action major versions** in that file (see [GitHub’s runner changelog](https://github.blog/changelog/)) rather than relying on opt-out environment variables unless there is no alternative.
-*   **Category score floors (duplicate of `lighthouserc` for quick reference):** performance **0.65**; accessibility, best practices, and SEO **0.85**. If the workflow fails on performance by a tiny margin, that is often **lab variance** (CDN, fonts, runner load)—either nudge the performance `minScore` down slightly or improve assets (self-hosted CSS, font loading, images). Edit [`.github/lighthouse/lighthouserc.json`](.github/lighthouse/lighthouserc.json) as the source of truth.
+*   **Category score floors (duplicate of `lighthouserc` for quick reference):** performance **0.7**; accessibility, best practices, and SEO **0.85**. If the workflow fails on performance by a tiny margin, that is often **lab variance** (CDN, fonts, runner load)—either nudge the performance `minScore` down slightly or improve assets (self-hosted CSS, font loading, images). Edit [`.github/lighthouse/lighthouserc.json`](.github/lighthouse/lighthouserc.json) as the source of truth.
 *   **Agent workflow:** After changing `index.html`, assets, or Lighthouse config, treat the task as unfinished until **GitHub Actions** shows a green (or intentionally acceptable) Lighthouse run on the branch. Do not assume local `lhci` scores match CI exactly.
 
 ## Development Conventions

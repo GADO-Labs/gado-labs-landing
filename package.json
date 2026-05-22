@@ -1,0 +1,12 @@
+{
+  "name": "gado-labs-landing",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
+    "build": "npm run build:css",
+    "dev:css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

@@ -54,4 +54,17 @@ If EU traffic becomes significant, add a privacy notice and [Google Consent Mode
 
 ## Development
 
-See [AGENTS.md](AGENTS.md) for project structure, i18n, and local preview.
+```bash
+npm install
+npm run build    # writes assets/styles.css (required before preview)
+python3 -m http.server 8000
+```
+
+Open http://localhost:8000/ — use a local server so `assets/styles.css` and `assets/logo.webp` load correctly.
+
+After changing Tailwind classes in `index.html`, run `npm run build` again. See [AGENTS.md](AGENTS.md) for structure and i18n.
+
+## Search Console
+
+- **robots.txt:** https://gado-labs.com/robots.txt  
+- **Sitemap:** https://gado-labs.com/sitemap.xml — submit this URL in [Google Search Console](https://search.google.com/search-console) after deploy. Update `lastmod` in `sitemap.xml` when you ship meaningful content changes.

@@ -5,118 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page_title">GADO Labs</title>
     <meta name="description" content="GADO Labs - Mobile & Web Development Studio based in the US.">
+    <link rel="canonical" href="https://gado-labs.com/">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y12P17SMWG"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preload" href="assets/logo.webp" as="image" type="image/webp">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"></noscript>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-Y12P17SMWG');
+      window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y12P17SMWG';
+        s.onload = function () { gtag('config', 'G-Y12P17SMWG'); };
+        document.head.appendChild(s);
+      });
     </script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        
-        /* --- CUSTOM THEME CONFIGURATION --- */
-        :root {
-            --neon-cyan: #22d3ee;     /* Matching Left Logo Side */
-            --neon-blue: #3b82f6;     /* Matching Center Logo Lines */
-            --neon-amber: #fbbf24;    /* Matching Right Logo Side */
-            --neon-orange: #f97316;   /* Matching Deep Right Lines */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate 900 */
-            color: #f1f5f9; /* Slate 100 */
-            overflow-x: hidden;
-        }
-
-        /* Dark Glass Navbar */
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(51, 65, 85, 0.4);
-        }
-
-        /* The "Logo Gradient" Text Effect (Cyan -> Blue -> Orange -> Amber) */
-        .text-gradient {
-            background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue), var(--neon-orange), var(--neon-amber));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Cyber Grid Background Pattern */
-        .hero-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-        }
-
-        /* Card Styles */
-        .service-card {
-            background-color: #1e293b; /* Slate 800 */
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* Hover Effects matching Logo Colors */
-        .hover-glow-cyan:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
-            transform: translateY(-5px);
-        }
-        .hover-glow-mixed:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
-            transform: translateY(-5px);
-        }
-        .hover-glow-amber:hover {
-            border-color: var(--neon-amber);
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
-            transform: translateY(-5px);
-        }
-
-        /* Main CTA Gradient Button */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-orange));
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-amber));
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s ease;
-        }
-        .btn-primary:hover::before {
-            opacity: 1;
-        }
-
-        #lang-toggle {
-            cursor: pointer;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        /* Selection color */
-        ::selection {
-            background: var(--neon-cyan);
-            color: #0f172a;
-        }
-    </style>
 </head>
 <body class="antialiased pb-24 sm:pb-8">
 
@@ -124,7 +34,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
             <a href="#" class="flex items-center gap-3 group">
-                <img src="assets/logo.svg" alt="GADO Labs Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110">
+                <img src="assets/logo.webp" alt="GADO Labs Logo" width="48" height="48" fetchpriority="high" decoding="async" class="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110">
                 <span class="text-xl font-extrabold text-slate-100 tracking-tight group-hover:text-cyan-400 transition-colors">GADO Labs</span>
             </a>
             
@@ -241,7 +151,7 @@
     <footer class="bg-slate-950 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-6">
-                <img src="assets/logo.svg" alt="GADO Labs" class="h-8 w-auto mx-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-500">
+                <img src="assets/logo.webp" alt="GADO Labs" width="32" height="32" loading="lazy" decoding="async" class="h-8 w-8 object-contain mx-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-500">
             </div>
             <p class="text-slate-500 text-sm">&copy; 2025 GADO Labs, LLC. <span id="footer_rights">Todos los derechos reservados.</span></p>
             <p id="footer_based" class="mt-2 text-xs text-slate-700">Con base en Estados Unidos, sirviendo al mundo digital.</p>
